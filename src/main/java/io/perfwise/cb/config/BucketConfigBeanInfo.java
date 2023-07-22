@@ -33,8 +33,8 @@ public class BucketConfigBeanInfo extends BeanInfoSupport {
 		PropertyDescriptor propertyDescriptor = property(SERVER);
 		propertyDescriptor.setValue(NOT_UNDEFINED, Boolean.TRUE);
 		propertyDescriptor.setValue(DEFAULT, "localhost");
-		propertyDescriptor.setDisplayName("Server Hostname");
-		propertyDescriptor.setShortDescription("Server IP/hostname");
+		propertyDescriptor.setDisplayName("Server IP/hostname/Connection String");
+		propertyDescriptor.setShortDescription("e.g. localhost, 127.0.0.1, couchbase://localhost, couchbases://localhost");
 
 		propertyDescriptor = property(USERNAME);
 		propertyDescriptor.setValue(NOT_UNDEFINED, Boolean.TRUE);

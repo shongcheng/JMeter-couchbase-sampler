@@ -66,7 +66,11 @@ public class BucketConfig extends ConfigTestElement
 		} else {
 			synchronized (this) {
 				try {
-					cluster = Cluster.connect("couchbases://"+ getServer(), getClusterOptions(getUsername(), getPassword()));
+					String connectionString = getServer();
+					if (getServer().indexOf("couchbase://") != 0 && getServer().indexOf("couchbases://") != 0) {
+						connectionString = "couchbase://" + getServer();
+					}
+					cluster = Cluster.connect(connectionString, getClusterOptions(getUsername(), getPassword()));
 					objectMap.put("cluster", cluster);
 					LOGGER.info("Connection to couchbase cluster has been established");
 					try {
